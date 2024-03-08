@@ -47,10 +47,11 @@ pipeline {
                         sh "docker build -t ekart:latest -f docker/Dockerfile . "
                         sh " docker tag ekart:latest harsha7633/ekart:latest"
                         sh "docker push harsha7633/ekart:latest"
+                        sh "docker run -d --name shoping -p 8070:8070 harsha7633/ekart:latest "
                     }
                 }
             }
         }
     } 
-    }
+}
 
