@@ -42,8 +42,8 @@ pipeline {
         stage('Build and push docker image') {
             steps {
                 script {
-                    // withCredentials([string(credentialsId: 'docker1', variable: 'docker1')]) {
-                    //    sh 'docker login -u harsha7633 -p ${docker1}'
+                    withCredentials([string(credentialsId: 'docker1', variable: 'docker1')]) {
+                       sh 'docker login -u harsha7633 -p ${docker1}'
                         sh "docker build -t ekart:latest -f docker/Dockerfile . "
                         sh " docker tag ekart:latest harsha7633/ekart:latest"
                         sh "docker push harsha7633/ekart:latest"
