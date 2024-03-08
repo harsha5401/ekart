@@ -42,7 +42,8 @@ pipeline {
         stage('Build and push docker image') {
             steps {
                 script {
-                    withDockerRegistry(crendentialsID: 'docker', toolName:'docker'){
+                    withCredentials([string(credentialsId: 'docker', variable: 'dockerhubpwd')]) {
+                       sh 'docker login -u harsha7633 -p ${docker}'
                         sh "docker buid -t ekart:latest -f docker/Dockerfile . "
                         sh " docker tag ekart:latest harsha7633/ekart:latest"
                         sh "docker push harsha7633/ekart:latest"
