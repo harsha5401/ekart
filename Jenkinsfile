@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Build app') {
             steps {
-                sh "mvn clean install -DsipTests=true"
+                sh "mvn clean install -DskipTests=true"
                 
             }
             
