@@ -42,7 +42,7 @@ pipeline {
         stage('Build and push docker image') {
             steps {
                 script {
-                    withDockerRegistry(crendentialsID: 'docker' toolName= 'docker'){
+                    withDockerRegistry(crendentialsID: 'docker' toolName:'docker'){
                         sh "docker buid -t ekart:latest -f docker/Dockerfile . "
                         sh " docker tag ekart:latest harsha7633/ekart:latest"
                         sh "docker push harsha7633/ekart:latest"
