@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git  branch : 'master', credentialsId: 'githubdxc', url: 'https://github.dxc.com/hbasireddy/ekart.git'
+                git  branch : 'master',  url: 'https://github.com/harsha5401/ekart.git'
                 
             }
             
